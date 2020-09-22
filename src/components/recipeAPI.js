@@ -11,17 +11,13 @@ const getAllRecipes = type => {
     case 'ALL':
       return fetch('/api/getAllRecipes').then(res => res.json());
     case 'SALAD':
-      fetch('/api/getAllSalads').then(res => res.json());
-      break;
+      return fetch('/api/getAllSalads').then(res => res.json());
     case 'JUICE':
-      fetch('/api/getAllJuice').then(res => res.json());
-      break;
+      return fetch('/api/getAllJuice').then(res => res.json());
     case 'BREAKFAST':
-      fetch('/api/getAllBreakFast').then(res => res.json());
-      break;
+      return fetch('/api/getAllBreakFast').then(res => res.json());
     case 'LUNCH':
-      fetch('/api/getAllLunch').then(res => res.json());
-      break;
+      return fetch('/api/getAllLunch').then(res => res.json());
   }
 };
 
