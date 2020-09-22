@@ -1,9 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Recipes from './components/Recipes';
 
 function App() {
-  return <p>Hello World!</p>;
+  return <Recipes />;
 }
 
 export default App;

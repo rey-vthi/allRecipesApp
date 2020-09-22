@@ -1,0 +1,74 @@
+.logo {
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  padding-top: 1vw;
+}
+
+.option {
+  width: 2vw;
+  height: 2vw;
+  padding-top: 1.5vw;
+  margin-right: 2vw;
+}
+
+.app {
+  margin: 20px;
+}
+
+.app-name {
+  font-family: sans-serif;
+  color: orange;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+.header {
+  margin: 1vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-header {
+  display: flex;
+}
+
+.recipe {
+  width: 25vw;
+  height: 30vw;
+  /* border: 2px solid black; */
+}
+
+.dish-picture {
+  width: 24.6vw;
+  height: 20vw;
+  /* border: 2px solid black; */
+}
+
+.all-recipes {
+  border: 2px solid black;
+  width: 75%;
+  display: wrap;
+}
+
+.user {
+  font-size: medium;
+  font-size: x-large;
+  padding-top: 0.2vw;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  margin: 2vw;
+}
+
+.right-panel {
+  display: flex;
+}
+
+.add-button {
+  width: 3vw;
+  height: 2vw;
+  margin-top: 1.5vw;
+}
