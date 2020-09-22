@@ -1,96 +1,52 @@
 import React, {useState, useEffect} from 'react';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import recipeAPI from './recipeAPI';
 import Header from './Header';
 import '../App.css';
-import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
+import Menu from './Menu';
+import Recipe from './Recipe';
+import RecipeAdder from './Recipeadder';
 
-const Recipe = function(props) {
-  return (
-    <div className="recipe">
-      <div className="dish-picture">
-        <img src={props.image} alt="NA"></img>
-      </div>
-      <h2>{props.name}</h2>
-      <span>{props.description}</span>
-    </div>
-  );
-};
-
-const Menu = function(props) {
-  const div = (
-    <div className="menu">
-      <div>
-        <Link to="/">All</Link>
-      </div>
-      <div>
-        <Link to="/recipes/salad">Salad</Link>
-      </div>
-      <div>
-        <Link to="/recipes/juice">Juice</Link>
-      </div>
-      <div>
-        <Link to="/recipes/breakfast">Breakfast</Link>
-      </div>
-      <div>
-        <Link to="/recipes/lunch">Lunch</Link>
-      </div>
-    </div>
-  );
-  return div;
+const FilteredRecipes = function(props) {
+  const [recipes, setRecipes] = useState([]);
+  useEffect(() => {
+    recipeAPI.getAllRecipes(props.category).then(setRecipes);
+  }, [props]);
+  return recipes.map((recipe, index) => (
+    <Recipe name={recipe.name} description={recipe.description} key={index} />
+  ));
 };
 
 const Recipes = function() {
-  const [recipes, setRecipes] = useState([]);
-  const [recipeType, setRecipeType] = useState('ALL');
-
-  useEffect(() => {
-    recipeAPI.getAllRecipes(recipeType).then(setRecipes);
-  }, [recipeType]);
-
-  const div = recipes.map((r, index) => (
-    <Recipe name={r.name} description={r.description} key={index} />
-  ));
   return (
     <BrowserRouter>
       <div>
         <Header />
-        <Menu />
       </div>
       <Switch>
         <Route exact path="/">
-          <div>{div}</div>
+          <Menu />
+          <FilteredRecipes category="ALL" />
         </Route>
         <Route path="/add">
-          <p>Add</p>
+          <RecipeAdder />
         </Route>
-        <Route
-          path="/recipes/salad"
-          render={() => {
-            setRecipeType('SALAD');
-            return <div>{div}</div>;
-          }}
-        ></Route>
-        <Route
-          path="/recipes/juice"
-          render={() => {
-            setRecipeType('JUICE');
-            return <div>{div}</div>;
-          }}
-        ></Route>
-        <Route
-          path="/recipes/breakfast"
-          render={() => {
-            setRecipeType('BREAKFAST');
-            return <div>{div}</div>;
-          }}
-        ></Route>
-        <Route
-          path="/recipes/lunch"
-          render={() => {
-            setRecipeType('LUNCH');
-            return <div>{div}</div>;
-          }}
-        ></Route>
+        <Route path="/recipes/salad">
+          <Menu />
+          <FilteredRecipes category="SALAD" />
+        </Route>
+        <Route path="/recipes/juice">
+          <Menu />
+          <FilteredRecipes category="JUICE" />
+        </Route>
+        <Route path="/recipes/breakfast">
+          <Menu />
+          <FilteredRecipes category="BREAKFAST" />
+        </Route>
+        <Route path="/recipes/lunch">
+          <Menu />
+          <FilteredRecipes category="LUNCH" />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
