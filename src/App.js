@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import Recipes from './components/Recipes';
+import RecipeApp from './components/RecipeApp';
 
 function App() {
-  return <Recipes />;
+  return <RecipeApp></RecipeApp>;
 }
 
 export default App;

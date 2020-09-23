@@ -1,51 +1,79 @@
 import React, {useState} from 'react';
+import recipeAPI from './recipeAPI';
+import InputBox from './InputBox';
+import Ingredients from './Ingredients';
+const InputPanel = function(props) {
+  return (
+    <div>
+      <span>{props.text}: </span>
+      <input
+        name={props.name}
+        onChange={props.onChange}
+        value={props.value}
+      ></input>
+    </div>
+  );
+};
+
+const Options = function(props) {
+  return (
+    <div>
+      <span>{props.text}: </span>
+      <select name={props.name} value={props.value} onChange={props.onChange}>
+        <option value="breakfast">Breakfast</option>
+        <option value="salad">Salad</option>
+        <option value="juice">Juice</option>
+        <option value="lunch">Lunch</option>
+      </select>
+    </div>
+  );
+};
 
 const RecipeAdder = () => {
   const [name, setName] = useState('');
-  const [ingredients, setIngredients] = useState('');
+  const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState('');
   const [description, setDescription] = useState('');
-  const [file, setFile] = useState(null);
+  // const [file] = useState();
+  const [category, setCategory] = useState('breakfast');
 
   const updateValue = function(event, setState) {
     const txt = event.target.value;
     setState(txt);
   };
 
-  const onChange = event => {
-    const [image] = event.target.files;
-    const reader = new FileReader();
-    reader.onload = () => {
-      setFile(`url(${reader.result})`);
-    };
-    if (image) {
-      reader.readAsDataURL(image);
-    }
-  };
-
   const handleSubmit = event => {
     event.preventDefault();
     const data = new FormData(event.target);
-    fetch('http://localhost:3001/api/addNewRecipe', {
-      method: 'POST',
-      body: data
-    });
+    console.log(data);
+    recipeAPI.addNewRecipe(data);
+  };
+
+  const updateIngredients = text => {
+    setIngredients(ingredients => ingredients.concat(text));
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <span>Dish name: </span>
-      <input
-        name="dishName"
+      <InputPanel
+        name="name"
+        text="Dish"
         onChange={e => updateValue(e, setName)}
         value={name}
-      ></input>
+      />
+      <Options
+        text="Category"
+        name="category"
+        value={category}
+        onChange={e => updateValue(e, setCategory)}
+      />
       <span>Ingredients: </span>
-      <input
-        name="ingredients"
-        onChange={e => updateValue(e, setIngredients)}
-        value={ingredients}
-      ></input>
+      {ingredients ? <Ingredients list={ingredients} /> : ''}
+      <InputBox
+        className="ingredients"
+        onEnter={updateIngredients}
+        value=""
+      ></InputBox>
       <span>Steps: </span>
       <input
         name="steps"
@@ -58,8 +86,8 @@ const RecipeAdder = () => {
         onChange={e => updateValue(e, setDescription)}
         value={description}
       ></input>
-      <div style={{content: file, width: '500px'}}></div>
-      <input type="file" name="file" onChange={onChange}></input>
+      {/* <div style={{cb vontent: file, width: '500px'}}></div> */}
+      <input type="file" name="file"></input>
       <button>submit</button>
     </form>
   );

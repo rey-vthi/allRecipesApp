@@ -27,22 +27,11 @@
   margin: 1vw;
   display: flex;
   justify-content: space-between;
+  border-bottom: 2px solid lightgray;
 }
 
 .left-header {
   display: flex;
-}
-
-.recipe {
-  width: 25vw;
-  height: 30vw;
-  /* border: 2px solid black; */
-}
-
-.dish-picture {
-  width: 24.6vw;
-  height: 20vw;
-  /* border: 2px solid black; */
 }
 
 .all-recipes {
@@ -60,7 +49,7 @@
 .menu {
   display: flex;
   justify-content: space-between;
-  margin: 2vw;
+  margin: 0 10vw 35px 10vw;
 }
 
 .right-panel {
@@ -71,4 +60,43 @@
   width: 3vw;
   height: 2vw;
   margin-top: 1.5vw;
+}
+
+.recipe {
+  width: 35vw;
+  height: fit-content;
+  border: 1px solid lightgray;
+  margin: 0 auto 3vw;
+}
+
+.recipe-image {
+  width: 35vw;
+  overflow-y: hidden;
+}
+
+.recipes {
+  height: fit-content;
+  width: 100%;
+}
+
+.adder {
+  display: flex;
+  padding-left: 7vw;
+}
+
+.ingredients {
+  padding-left: 7vw;
+}
+
+.add-icon {
+  width: 1vw;
+  height: 1vw;
+}
+
+.content {
+  padding-left: 1vw;
+}
+
+.by-name {
+  font-style: italic;
 }

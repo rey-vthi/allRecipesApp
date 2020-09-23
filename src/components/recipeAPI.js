@@ -1,8 +1,7 @@
 const postReq = (url, data) => {
   return fetch(url, {
     method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(data)
+    body: data
   });
 };
 
@@ -21,6 +20,15 @@ const getAllRecipes = type => {
   }
 };
 
+const addNewRecipe = data => {
+  return postReq('/api/addNewRecipe', data);
+};
+
+const isLoggedIn = () => {
+  return fetch('/api/isLoggedIn').then(res => res.json());
+};
 export default {
-  getAllRecipes
+  getAllRecipes,
+  addNewRecipe,
+  isLoggedIn
 };
