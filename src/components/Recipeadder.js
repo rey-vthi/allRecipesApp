@@ -1,30 +1,56 @@
 import React, {useState} from 'react';
 import recipeAPI from './recipeAPI';
 import InputBox from './InputBox';
-import Ingredients from './Ingredients';
+import List from './List';
 const InputPanel = function(props) {
   return (
-    <div>
-      <span>{props.text}: </span>
-      <input
-        name={props.name}
-        onChange={props.onChange}
-        value={props.value}
-      ></input>
+    <div className="dish-name-panel">
+      <div className="field">
+        <span>{props.text}: </span>
+      </div>
+      <div className={props.style}>
+        <input
+          name={props.name}
+          onChange={props.onChange}
+          value={props.value}
+        ></input>
+      </div>
     </div>
   );
 };
 
 const Options = function(props) {
   return (
+    <div className="left-header">
+      <div className="field">
+        <span>{props.text}: </span>
+      </div>
+      <div>
+        <select name={props.name} value={props.value} onChange={props.onChange}>
+          <option className="options" value="breakfast">
+            Breakfast
+          </option>
+          <option value="salad">Salad</option>
+          <option value="juice">Juice</option>
+          <option value="lunch">Lunch</option>
+        </select>
+      </div>
+    </div>
+  );
+};
+
+const ListAdder = function(props) {
+  return (
     <div>
-      <span>{props.text}: </span>
-      <select name={props.name} value={props.value} onChange={props.onChange}>
-        <option value="breakfast">Breakfast</option>
-        <option value="salad">Salad</option>
-        <option value="juice">Juice</option>
-        <option value="lunch">Lunch</option>
-      </select>
+      <div style={{display: 'flex'}}>
+        <div className="field">
+          <div>
+            <span>{props.text} </span>
+          </div>
+        </div>
+        {props.list ? <List list={props.list} /> : ''}
+      </div>
+      <InputBox onEnter={props.onEnter} value=""></InputBox>
     </div>
   );
 };
@@ -32,9 +58,8 @@ const Options = function(props) {
 const RecipeAdder = () => {
   const [name, setName] = useState('');
   const [ingredients, setIngredients] = useState([]);
-  const [steps, setSteps] = useState('');
+  const [steps, setSteps] = useState([]);
   const [description, setDescription] = useState('');
-  // const [file] = useState();
   const [category, setCategory] = useState('breakfast');
 
   const updateValue = function(event, setState) {
@@ -45,7 +70,6 @@ const RecipeAdder = () => {
   const handleSubmit = event => {
     event.preventDefault();
     const data = new FormData(event.target);
-    console.log(data);
     recipeAPI.addNewRecipe(data);
   };
 
@@ -53,43 +77,49 @@ const RecipeAdder = () => {
     setIngredients(ingredients => ingredients.concat(text));
   };
 
+  const updateSteps = text => {
+    setSteps(steps => steps.concat(text));
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <InputPanel
-        name="name"
-        text="Dish"
-        onChange={e => updateValue(e, setName)}
-        value={name}
-      />
-      <Options
-        text="Category"
-        name="category"
-        value={category}
-        onChange={e => updateValue(e, setCategory)}
-      />
-      <span>Ingredients: </span>
-      {ingredients ? <Ingredients list={ingredients} /> : ''}
-      <InputBox
-        className="ingredients"
-        onEnter={updateIngredients}
-        value=""
-      ></InputBox>
-      <span>Steps: </span>
-      <input
-        name="steps"
-        onChange={e => updateValue(e, setSteps)}
-        value={steps}
-      ></input>
-      <span>Description: </span>
-      <input
-        name="description"
-        onChange={e => updateValue(e, setDescription)}
-        value={description}
-      ></input>
-      {/* <div style={{cb vontent: file, width: '500px'}}></div> */}
-      <input type="file" name="file"></input>
-      <button>submit</button>
-    </form>
+    <div className="recipe-form">
+      <form onSubmit={handleSubmit}>
+        <InputPanel
+          style="dish-name"
+          name="name"
+          text="Dish"
+          onChange={e => updateValue(e, setName)}
+          value={name}
+        />
+        <Options
+          text="Category"
+          name="category"
+          value={category}
+          onChange={e => updateValue(e, setCategory)}
+        />
+        <ListAdder
+          onEnter={updateIngredients}
+          list={ingredients}
+          text="Ingredients: "
+        />
+        <ListAdder onEnter={updateSteps} text="Steps: " list={steps} />
+        <div className="field">
+          <div>
+            <span>Description: </span>
+          </div>
+          <div>
+            <input
+              name="description"
+              onChange={e => updateValue(e, setDescription)}
+              value={description}
+            ></input>
+          </div>
+        </div>
+        <input type="file" name="file"></input>
+        <p></p>
+        <button>Add</button>
+      </form>
+    </div>
   );
 };
 export default RecipeAdder;

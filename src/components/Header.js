@@ -19,7 +19,9 @@ const Header = function(props) {
     <div className="header">
       <InformationPanel path="/logo.png" style="app-name" name="AllRecipes" />
       <div className="right-panel">
-        <Link to="/recipes/add">Add</Link>
+        <Link to="/recipes/add">
+          <Image className="plus-icon" path="/addIcon.png"></Image>
+        </Link>
         <Link to="/user/profile">
           <Image className="logo" path="/profile.png" />
         </Link>

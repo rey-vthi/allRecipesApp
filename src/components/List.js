@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Ingredients = function(props) {
+const List = function(props) {
   const list = props.list.map((i, index) => (
     <div key={index}>
       <li>{i}</li>
     </div>
   ));
-  return <ul className="ingredients">{list}</ul>;
+  return <ul>{list}</ul>;
 };
 
-export default Ingredients;
+export default List;

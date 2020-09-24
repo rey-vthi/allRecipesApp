@@ -1,23 +1,33 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 const Menu = function() {
   const div = (
-    <div className="menu">
-      <div>
-        <Link to="/">All</Link>
+    <div className="menu-bar">
+      <div className="menu">
+        <NavLink exact to="/" activeClassName="selected">
+          All
+        </NavLink>
       </div>
-      <div>
-        <Link to="/recipes/salad">Salad</Link>
+      <div className="menu">
+        <NavLink to="/recipes/salad" activeClassName="selected">
+          Salad
+        </NavLink>
       </div>
-      <div>
-        <Link to="/recipes/juice">Juice</Link>
+      <div className="menu">
+        <NavLink to="/recipes/juice" activeClassName="selected">
+          Juice
+        </NavLink>
       </div>
-      <div>
-        <Link to="/recipes/breakfast">Breakfast</Link>
+      <div className="menu">
+        <NavLink to="/recipes/breakfast" activeClassName="selected">
+          Breakfast
+        </NavLink>
       </div>
-      <div>
-        <Link to="/recipes/lunch">Lunch</Link>
+      <div className="menu">
+        <NavLink to="/recipes/lunch" activeClassName="selected">
+          Lunch
+        </NavLink>
       </div>
     </div>
   );
