@@ -4,6 +4,7 @@ import FilteredRecipes from './FilteredRecipes';
 import Header from './Header';
 import '../App.css';
 import Menu from './Menu';
+import Profile from './Profile';
 
 import RecipeAdder from './Recipeadder';
 
@@ -38,7 +39,7 @@ const Recipes = function() {
           <RecipeAdder />
         </Route>
         <Route path="/user/profile">
-          <p>Profile</p>
+          <Profile />
         </Route>
       </Switch>
     </BrowserRouter>

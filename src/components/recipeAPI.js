@@ -27,8 +27,22 @@ const addNewRecipe = data => {
 const isLoggedIn = () => {
   return fetch('/api/isLoggedIn').then(res => res.json());
 };
+
+const getProfile = () => {
+  return fetch('/api/profile').then(res => res.json());
+};
+
+const getOthers = () => {
+  return fetch('/api/others').then(res => res.json());
+};
+
+const toggleFollowStatus = id => {
+  return postReq('/api/toggleFollowStatus', id);
+};
 export default {
   getAllRecipes,
   addNewRecipe,
-  isLoggedIn
+  isLoggedIn,
+  getProfile,
+  getOthers
 };

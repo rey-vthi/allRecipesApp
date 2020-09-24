@@ -4,7 +4,7 @@ const Recipe = function(props) {
   return (
     <div className="recipe">
       <img src={path} className="recipe-image" alt="NA"></img>
-      <div class="content">
+      <div className="content">
         <h2>{props.name}</h2>
         <span>{props.description}</span>
         <p>
