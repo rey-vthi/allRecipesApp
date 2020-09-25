@@ -15,6 +15,7 @@ const FilteredRecipes = function(props) {
       description={recipe.description}
       key={index}
       by={recipe.by}
+      id={recipe.recipeId}
       path={recipe.path}
     />
   ));

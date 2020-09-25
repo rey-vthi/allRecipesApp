@@ -56,20 +56,24 @@
 }
 
 .recipe {
-  width: 35vw;
+  width: 20vw;
   height: fit-content;
   border: 1px solid lightgray;
-  margin: 0 auto 3vw;
+  margin: 2vw auto 3vw;
 }
 
 .recipe-image {
-  width: 35vw;
-  overflow-y: hidden;
+  height: 20vw;
+  width: 20vw;
 }
 
 .recipes {
   height: fit-content;
-  width: 100%;
+  width: 75%;
+  padding-left: 12.5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .adder {

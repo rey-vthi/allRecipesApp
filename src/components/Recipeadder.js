@@ -70,6 +70,8 @@ const RecipeAdder = () => {
   const handleSubmit = event => {
     event.preventDefault();
     const data = new FormData(event.target);
+    data.append('steps', steps);
+    data.append('ingredients', ingredients);
     recipeAPI.addNewRecipe(data);
   };
 

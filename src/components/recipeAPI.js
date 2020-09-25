@@ -39,10 +39,15 @@ const getOthers = () => {
 const toggleFollowStatus = id => {
   return postReq('/api/toggleFollowStatus', id);
 };
+
+const getRecipe = id => {
+  return fetch(`/api/getRecipe/${id}`).then(res => res.json());
+};
 export default {
   getAllRecipes,
   addNewRecipe,
   isLoggedIn,
   getProfile,
-  getOthers
+  getOthers,
+  getRecipe
 };

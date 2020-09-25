@@ -6,7 +6,9 @@ import {Link} from 'react-router-dom';
 const InformationPanel = function(props) {
   return (
     <div className="left-header">
-      <Image className="logo" path={props.path} />
+      <Link to="/">
+        <Image className="logo" path={props.path} />
+      </Link>
       <div>
         <p className={props.style}>{props.name}</p>
       </div>
