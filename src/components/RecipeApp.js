@@ -3,7 +3,13 @@ import recipeAPI from './recipeAPI';
 import Recipes from './Recipes';
 
 const Login = function() {
-  return <a href="http://localhost:3001/api/signIn">Login through Github</a>;
+  const div = (
+    <div>
+      <h1>Recipe App</h1>
+      <a href="http://localhost:3001/api/signIn">Login through Github</a>
+    </div>
+  );
+  return div;
 };
 
 const RecipeApp = function() {

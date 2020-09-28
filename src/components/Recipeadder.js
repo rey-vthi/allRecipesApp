@@ -105,10 +105,13 @@ const RecipeAdder = () => {
           text="Ingredients: "
         />
         <ListAdder onEnter={updateSteps} text="Steps: " list={steps} />
-        <div className="field">
-          <div>
-            <span>Description: </span>
+        <div style={{display: 'flex'}}>
+          <div className="field">
+            <div>
+              <span>Description: </span>
+            </div>
           </div>
+
           <div>
             <input
               name="description"
@@ -117,6 +120,7 @@ const RecipeAdder = () => {
             ></input>
           </div>
         </div>
+        <span style={{paddingRight: '9vw'}}>Image:</span>
         <input type="file" name="file"></input>
         <p></p>
         <button>Add</button>
