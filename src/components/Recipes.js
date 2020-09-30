@@ -36,16 +36,17 @@ const ShowRecipe = function() {
 
   const path = `/api${url}`;
   return (
-    <div>
+    <div className="recipe-container">
       <h1>{name}</h1>
-      <img className="recipe-full-picture" src={path} alt="NA" />
+      <img style={{width: '20vw'}} src={path} alt="NA" />
+      <span className="heading">Category: </span>
+      <p>{category}</p>
+      ingredients:<List list={ingredients}></List>
+      Steps: <List list={steps}></List>
       <p>{description}</p>
       <p>
         By <span className="by-name">{by}</span>
       </p>
-      ingredients:<List list={ingredients}></List>
-      Steps: <List list={steps}></List>
-      Category:<p>{category}</p>
     </div>
   );
 };

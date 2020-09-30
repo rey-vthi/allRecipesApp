@@ -201,3 +201,15 @@ select {
 .submit-button {
   width: 33vw;
 }
+
+.recipe-full-picture {
+  width: 50%;
+}
+
+.recipe-container {
+  margin-left: 25%;
+}
+
+.heading {
+  font-size: large;
+}
