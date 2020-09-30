@@ -94,6 +94,9 @@ const Recipes = function(props) {
         <Route path="/recipe/:recipeId">
           <ShowRecipe></ShowRecipe>
         </Route>
+        <Route path="/recipes/recipe/:recipeId">
+          <ShowRecipe></ShowRecipe>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
