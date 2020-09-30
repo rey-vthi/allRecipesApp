@@ -2,7 +2,7 @@
   width: 3vw;
   height: 3vw;
   border-radius: 50%;
-  padding-top: 1vw;
+  margin-top: 2vw;
 }
 
 .option {
@@ -27,7 +27,7 @@
   margin: 1vw;
   display: flex;
   justify-content: space-between;
-  border-bottom: 2px solid lightgray;
+  border-bottom: 1px solid lightgray;
 }
 
 .left-header {
@@ -81,11 +81,6 @@
   padding-left: 12.2vw;
 }
 
-.add-icon {
-  width: 1vw;
-  height: 1vw;
-}
-
 .content {
   padding-left: 1vw;
   padding-right: 1vw;
@@ -115,8 +110,14 @@
 }
 
 .selected {
-  width: 20%;
-  border-bottom: 5px solid black;
+  text-decoration: none;
+  border-bottom: 5px solid orange;
+}
+
+.not-selected {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: large;
 }
 
 .link {
@@ -140,20 +141,63 @@
 }
 
 input {
-  width: 15vw;
-  height: 1.2vw;
+  width: 20vw;
+  height: 2vw;
+  font-size: large;
 }
 
 select {
-  width: 15.5vw;
-  height: 1.8vw;
+  width: 20.5vw;
+  height: 2.3vw;
 }
 
 .dish-name-panel {
   display: flex;
-  margin: 0 0 2vw;
+  margin: 0 0 4vw;
 }
 
 .description-adder {
   padding-left: 1vw;
+}
+
+.add-icon {
+  width: 1.5vw;
+}
+
+.multiple-input {
+  padding-bottom: 2vw;
+}
+
+.description-box {
+  display: flex;
+  margin-bottom: 2vw;
+}
+
+.category-adder {
+  display: flex;
+  margin-bottom: 1vw;
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 15vw;
+}
+
+.profile-container {
+  display: flex;
+  margin-left: 30%;
+}
+
+.details {
+  margin-left: 2vw;
+}
+.status {
+  width: 50%;
+  padding-left: 11vw;
+  margin-top: 1vw;
+  background: green;
+}
+
+.submit-button {
+  width: 33vw;
 }

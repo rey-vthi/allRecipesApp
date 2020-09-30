@@ -23,7 +23,6 @@ const ShowRecipe = function() {
 
   useEffect(() => {
     recipeAPI.getRecipe(recipeId).then(([recipe]) => {
-      console.log(recipe);
       setName(recipe.name);
       setBy(recipe.by);
       setSteps(recipe.steps);
@@ -31,8 +30,9 @@ const ShowRecipe = function() {
       setCategory(recipe.category);
       setIngredients(recipe.ingredients);
       setDescription(recipe.description);
+      setCategory(recipe.category);
     });
-  }, []);
+  }, [recipeId]);
 
   const path = `/api${url}`;
   return (
@@ -45,11 +45,12 @@ const ShowRecipe = function() {
       </p>
       ingredients:<List list={ingredients}></List>
       Steps: <List list={steps}></List>
+      Category:<p>{category}</p>
     </div>
   );
 };
 
-const Recipes = function() {
+const Recipes = function(props) {
   return (
     <BrowserRouter>
       <div>

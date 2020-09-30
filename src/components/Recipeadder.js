@@ -8,7 +8,7 @@ const InputPanel = function(props) {
       <div className="field">
         <span>{props.text}: </span>
       </div>
-      <div className={props.style}>
+      <div className={props.styler}>
         <input
           name={props.name}
           onChange={props.onChange}
@@ -21,7 +21,7 @@ const InputPanel = function(props) {
 
 const Options = function(props) {
   return (
-    <div className="left-header">
+    <div className="category-adder">
       <div className="field">
         <span>{props.text}: </span>
       </div>
@@ -41,7 +41,7 @@ const Options = function(props) {
 
 const ListAdder = function(props) {
   return (
-    <div>
+    <div className="multiple-input">
       <div style={{display: 'flex'}}>
         <div className="field">
           <div>
@@ -61,6 +61,8 @@ const RecipeAdder = () => {
   const [steps, setSteps] = useState([]);
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('breakfast');
+  const [file, setFile] = useState(false);
+  const [status, setStatus] = useState();
 
   const updateValue = function(event, setState) {
     const txt = event.target.value;
@@ -68,26 +70,36 @@ const RecipeAdder = () => {
   };
 
   const handleSubmit = event => {
-    event.preventDefault();
-    const data = new FormData(event.target);
-    data.append('steps', steps);
-    data.append('ingredients', ingredients);
-    recipeAPI.addNewRecipe(data);
+    if (
+      name !== '' &&
+      ingredients.length !== 0 &&
+      steps.length !== 0 &&
+      description !== '' &&
+      file !== null &&
+      category
+    ) {
+      setStatus('Added Successfully');
+      event.preventDefault();
+      const data = new FormData(event.target);
+      data.append('steps', steps);
+      data.append('ingredients', ingredients);
+      recipeAPI.addNewRecipe(data);
+    }
   };
 
   const updateIngredients = text => {
-    setIngredients(ingredients => ingredients.concat(text));
+    if (text !== '') setIngredients(ingredients => ingredients.concat(text));
   };
 
   const updateSteps = text => {
-    setSteps(steps => steps.concat(text));
+    if (text !== '') setSteps(steps => steps.concat(text));
   };
 
   return (
     <div className="recipe-form">
       <form onSubmit={handleSubmit}>
         <InputPanel
-          style="dish-name"
+          styler="dish-name"
           name="name"
           text="Dish"
           onChange={e => updateValue(e, setName)}
@@ -105,13 +117,12 @@ const RecipeAdder = () => {
           text="Ingredients: "
         />
         <ListAdder onEnter={updateSteps} text="Steps: " list={steps} />
-        <div style={{display: 'flex'}}>
+        <div className="description-box">
           <div className="field">
             <div>
               <span>Description: </span>
             </div>
           </div>
-
           <div>
             <input
               name="description"
@@ -121,10 +132,13 @@ const RecipeAdder = () => {
           </div>
         </div>
         <span style={{paddingRight: '9vw'}}>Image:</span>
-        <input type="file" name="file"></input>
+        <input type="file" name="file" onChange={() => setFile(true)}></input>
         <p></p>
-        <button>Add</button>
+        <div>
+          <button className="submit-button">Add</button>
+        </div>
       </form>
+      <div className="status">{status}</div>
     </div>
   );
 };
