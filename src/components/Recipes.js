@@ -39,14 +39,21 @@ const ShowRecipe = function() {
     <div className="recipe-container">
       <h1>{name}</h1>
       <img style={{width: '20vw'}} src={path} alt="NA" />
-      <span className="heading">Category: </span>
-      <p>{category}</p>
-      ingredients:<List list={ingredients}></List>
-      Steps: <List list={steps}></List>
+      <div>
+        <span className="heading">Category: </span>
+      </div>
+      <div>
+        <span>{category}</span>
+      </div>
+      <div>
+        <span className="heading">ingredients:</span>
+        <List list={ingredients}></List>
+      </div>
+      <div>
+        <span className="heading">Steps:</span> <List list={steps}></List>
+      </div>
       <p>{description}</p>
-      <p>
-        By <span className="by-name">{by}</span>
-      </p>
+      <span className="by">By</span> <span className="by-name">{by}</span>
     </div>
   );
 };
