@@ -2,16 +2,18 @@ import React from 'react';
 import '../App.css';
 import Image from './Image';
 import {Link} from 'react-router-dom';
-import InformationPanel from './InformationPanel'
 
 const Header = function(props) {
   return (
     <div className="header">
-      <InformationPanel
-        path="/logo.png"
-        className="app-name"
-        name="AllRecipes"
-      />
+      <div className="left-header">
+        <Link to="/">
+          <Image className="logo" path={props.path} />
+        </Link>
+        <div>
+          <h2 style={{color: 'orange', marginTop: '3vw'}}>{props.name}</h2>
+        </div>
+      </div>
       <div className="right-panel">
         <Link to="/recipes/add">
           <Image className="logo" path="/addIcon.png"></Image>
