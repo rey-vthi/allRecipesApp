@@ -2,16 +2,15 @@ import React, {useEffect, useState} from 'react';
 import recipeAPI from './recipeAPI';
 
 const User = function(props) {
-  // const [user, setUser] = useState(props.user);
   return (
     <div className="others-list">
       <div>
         <img src={props.user.url} className="other-user-image" alt="NA"></img>
       </div>
-      <div>
+      <div className="others-info">
         <span>{props.user.name}</span>
       </div>
-      <div>
+      <div className="others-info">
         <button onClick={() => {}}>
           {props.user.followingStatus ? 'UNFOLLOW' : 'FOLLOW'}
         </button>
