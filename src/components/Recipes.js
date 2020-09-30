@@ -41,8 +41,6 @@ const ShowRecipe = function() {
       <img style={{width: '20vw'}} src={path} alt="NA" />
       <div>
         <span className="heading">Category: </span>
-      </div>
-      <div>
         <span>{category}</span>
       </div>
       <div>
@@ -52,7 +50,7 @@ const ShowRecipe = function() {
       <div>
         <span className="heading">Steps:</span> <List list={steps}></List>
       </div>
-      <p>{description}</p>
+      <p className="description-content">{description}</p>
       <span className="by">By</span> <span className="by-name">{by}</span>
     </div>
   );

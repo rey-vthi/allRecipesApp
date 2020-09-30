@@ -208,9 +208,15 @@ select {
 
 .recipe-container {
   margin-left: 25%;
+  margin-right: 25%;
+  border: 1px solid lightgray;
 }
 
 .heading {
   font-size: large;
+  font-weight: bold;
+}
+
+.description-content {
   font-weight: bold;
 }
