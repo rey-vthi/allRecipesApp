@@ -60,7 +60,7 @@ const Recipes = function(props) {
   return (
     <BrowserRouter>
       <div>
-        <Header />
+        <Header handleLogout={props.handleLogout} />
       </div>
       <Switch>
         <Route exact path="/">

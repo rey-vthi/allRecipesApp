@@ -31,6 +31,12 @@ const Header = function(props) {
         <Link to="/user/profile">
           <Image className="logo" path="/profile.png" />
         </Link>
+        <img
+          src="/logout.png"
+          className="logout"
+          alt="NA"
+          onClick={props.handleLogout}
+        />
       </div>
     </div>
   );

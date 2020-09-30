@@ -21,7 +21,11 @@ const RecipeApp = function() {
     recipeAPI.isLoggedIn().then(setLogin);
   }, []);
 
-  const div = login.status ? <Recipes /> : <Login />;
+  const handleLogout = function() {
+    recipeAPI.logout().then(setLogin({status: false}));
+  };
+
+  const div = login.status ? <Recipes handleLogout={handleLogout}/> : <Login />;
   return div;
 };
 

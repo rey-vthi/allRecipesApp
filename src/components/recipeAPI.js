@@ -44,6 +44,10 @@ const getUser = () => {
   return fetch('/api/user').then(res => res.json());
 };
 
+const logout = () => {
+  return postReq('/api/logout');
+};
+
 export default {
   getAllRecipes,
   addNewRecipe,
@@ -51,5 +55,6 @@ export default {
   getProfile,
   getOthers,
   getRecipe,
-  getUser
+  getUser,
+  logout
 };
