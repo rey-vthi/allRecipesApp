@@ -2,19 +2,7 @@ import React from 'react';
 import '../App.css';
 import Image from './Image';
 import {Link} from 'react-router-dom';
-
-const InformationPanel = function(props) {
-  return (
-    <div className="left-header">
-      <Link to="/">
-        <Image className="logo" path={props.path} />
-      </Link>
-      <div>
-        <h2 style={{color: 'orange', marginTop: '3vw'}}>{props.name}</h2>
-      </div>
-    </div>
-  );
-};
+import InformationPanel from './InformationPanel'
 
 const Header = function(props) {
   return (

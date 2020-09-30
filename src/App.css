@@ -187,7 +187,7 @@ select {
 
 .profile-container {
   display: flex;
-  margin-left: 30%;
+  margin-left: 25%;
 }
 
 .details {
@@ -224,9 +224,9 @@ select {
 }
 
 .logout {
-  width: 3vw;
-  height: 3vw;
-  margin-top: 2vw;
+  width: 2.5vw;
+  height: 2.5vw;
+  margin-top: 2.2vw;
 }
 
 .others-info {
