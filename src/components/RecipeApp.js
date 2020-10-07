@@ -6,7 +6,7 @@ const Login = function() {
   const div = (
     <div>
       <h1>Recipe App</h1>
-      <a href="https://github.com/login/oauth/authorize?client_id=1d0dd614acec505180d7">
+      <a href="https://github.com/login/oauth/authorize?client_id=b96fc2f74f792b407401">
         Login through Github
       </a>
     </div>
@@ -25,7 +25,11 @@ const RecipeApp = function() {
     recipeAPI.logout().then(setLogin({status: false}));
   };
 
-  const div = login.status ? <Recipes handleLogout={handleLogout}/> : <Login />;
+  const div = login.status ? (
+    <Recipes handleLogout={handleLogout} />
+  ) : (
+    <Login />
+  );
   return div;
 };
 

@@ -8,10 +8,10 @@ const Header = function(props) {
     <div className="header">
       <div className="left-header">
         <Link to="/">
-          <Image className="logo" path={props.path} />
+          <Image className="logo" path="/logo.png" />
         </Link>
         <div>
-          <h2 style={{color: 'orange', marginTop: '3vw'}}>{props.name}</h2>
+          <h2 style={{color: 'orange', marginTop: '3vw'}}>AllRecipes</h2>
         </div>
       </div>
       <div className="right-panel">

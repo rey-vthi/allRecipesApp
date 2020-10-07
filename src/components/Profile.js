@@ -1,30 +1,6 @@
 import React, {useEffect, useState} from 'react';
+import Others from './Others';
 import recipeAPI from './recipeAPI';
-
-const User = function(props) {
-  return (
-    <div className="others-list">
-      <div>
-        <img src={props.user.url} className="other-user-image" alt="NA"></img>
-      </div>
-      <div className="others-info">
-        <span>{props.user.name}</span>
-      </div>
-      <div className="others-info">
-        <button onClick={() => {}}>
-          {props.user.followingStatus ? 'UNFOLLOW' : 'FOLLOW'}
-        </button>
-      </div>
-    </div>
-  );
-};
-
-const Others = function(props) {
-  const list = props.info.map((user, index) => {
-    return <User key={index} user={user} />;
-  });
-  return <div>{list}</div>;
-};
 
 const Profile = function() {
   const [user, setUser] = useState({});

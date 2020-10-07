@@ -134,6 +134,7 @@
 .recipe-form {
   margin-left: 25%;
   width: 50%;
+  padding-left: 10vw;
 }
 
 .field {
@@ -188,6 +189,8 @@ select {
 .profile-container {
   display: flex;
   margin-left: 25%;
+  margin-right: 25%;
+  border: 1px solid lightgray;
 }
 
 .details {
@@ -211,7 +214,9 @@ select {
 .recipe-container {
   margin-left: 25%;
   margin-right: 25%;
-  border: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+  padding-left: 1vw;
 }
 
 .heading {
@@ -227,6 +232,7 @@ select {
   width: 2.5vw;
   height: 2.5vw;
   margin-top: 2.2vw;
+  cursor: pointer;
 }
 
 .others-info {

@@ -1,59 +1,8 @@
 import React, {useState} from 'react';
 import recipeAPI from './recipeAPI';
-import InputBox from './InputBox';
-import List from './List';
-const InputPanel = function(props) {
-  return (
-    <div className="dish-name-panel">
-      <div className="field">
-        <span>{props.text}: </span>
-      </div>
-      <div className={props.styler}>
-        <input
-          name={props.name}
-          onChange={props.onChange}
-          value={props.value}
-        ></input>
-      </div>
-    </div>
-  );
-};
-
-const Options = function(props) {
-  return (
-    <div className="category-adder">
-      <div className="field">
-        <span>{props.text}: </span>
-      </div>
-      <div>
-        <select name={props.name} value={props.value} onChange={props.onChange}>
-          <option className="options" value="breakfast">
-            Breakfast
-          </option>
-          <option value="salad">Salad</option>
-          <option value="juice">Juice</option>
-          <option value="lunch">Lunch</option>
-        </select>
-      </div>
-    </div>
-  );
-};
-
-const ListAdder = function(props) {
-  return (
-    <div className="multiple-input">
-      <div style={{display: 'flex'}}>
-        <div className="field">
-          <div>
-            <span>{props.text} </span>
-          </div>
-        </div>
-        {props.list ? <List list={props.list} /> : ''}
-      </div>
-      <InputBox onEnter={props.onEnter} value=""></InputBox>
-    </div>
-  );
-};
+import InputPanel from './InputPanel';
+import Options from './Options';
+import ListAdder from './ListAdder';
 
 const RecipeAdder = () => {
   const [name, setName] = useState('');
