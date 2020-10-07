@@ -6,7 +6,7 @@ const Login = function() {
   const div = (
     <div>
       <h1>Recipe App</h1>
-      <a href="https://github.com/login/oauth/authorize?client_id=b96fc2f74f792b407401">
+      <a href="https://github.com/login/oauth/authorize?client_id=1d0dd614acec505180d7">
         Login through Github
       </a>
     </div>
