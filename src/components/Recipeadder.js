@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import recipeAPI from './recipeAPI';
+import recipeAPI from './api';
 import InputPanel from './InputPanel';
 import Options from './Options';
 import ListAdder from './ListAdder';

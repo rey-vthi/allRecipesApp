@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import recipeAPI from './recipeAPI';
+import recipeAPI from './api';
 import Recipes from './Recipes';
 
 const Login = function() {

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import recipeAPI from './recipeAPI';
+import recipeAPI from './api';
 import Recipe from './Recipe';
 
 const FilteredRecipes = function(props) {

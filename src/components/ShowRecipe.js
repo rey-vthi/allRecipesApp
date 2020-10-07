@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
-import recipeAPI from './recipeAPI';
+import recipeAPI from './api';
 import List from './List';
 
 const ShowRecipe = function() {

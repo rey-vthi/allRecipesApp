@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Others from './Others';
-import recipeAPI from './recipeAPI';
+import recipeAPI from './api';
 
 const Profile = function() {
   const [user, setUser] = useState({});
