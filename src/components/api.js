@@ -17,6 +17,8 @@ const getAllRecipes = type => {
       return fetch('/api/getAllBreakFast').then(res => res.json());
     case 'LUNCH':
       return fetch('/api/getAllLunch').then(res => res.json());
+    default:
+      return;
   }
 };
 
